@@ -1,0 +1,1 @@
+![](../../Desktop/all-dental-clinic-website-uml.png)
