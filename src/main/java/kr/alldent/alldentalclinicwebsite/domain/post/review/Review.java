@@ -1,5 +1,6 @@
-package kr.alldent.alldentalclinicwebsite.domain.post;
+package kr.alldent.alldentalclinicwebsite.domain.post.review;
 
+import kr.alldent.alldentalclinicwebsite.domain.post.BasePostEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -22,7 +23,7 @@ import java.text.SimpleDateFormat;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Review extends BasePostEntity{
+public class Review extends BasePostEntity {
 
     @Column(length = 500, nullable = false)
     private String title;

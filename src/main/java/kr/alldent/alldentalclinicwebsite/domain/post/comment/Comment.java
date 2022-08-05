@@ -1,6 +1,7 @@
-package kr.alldent.alldentalclinicwebsite.domain.post;
+package kr.alldent.alldentalclinicwebsite.domain.post.comment;
 
 
+import kr.alldent.alldentalclinicwebsite.domain.post.BasePostEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

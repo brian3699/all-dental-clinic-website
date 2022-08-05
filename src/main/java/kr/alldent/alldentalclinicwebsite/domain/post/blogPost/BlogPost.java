@@ -1,5 +1,6 @@
-package kr.alldent.alldentalclinicwebsite.domain.post;
+package kr.alldent.alldentalclinicwebsite.domain.post.blogPost;
 
+import kr.alldent.alldentalclinicwebsite.domain.post.BasePostEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,7 +20,7 @@ import javax.persistence.Entity;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class BlogPost extends BasePostEntity{
+public class BlogPost extends BasePostEntity {
 
     @Column(length = 500, nullable = false)
     private String title;
