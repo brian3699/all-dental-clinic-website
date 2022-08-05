@@ -1,6 +1,7 @@
 package kr.alldent.alldentalclinicwebsite.domain.post;
 
 import kr.alldent.alldentalclinicwebsite.domain.BaseEntity;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,6 +18,7 @@ import javax.persistence.*;
  */
 @Getter
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public abstract class BasePostEntity extends BaseEntity {
 
@@ -31,21 +33,5 @@ public abstract class BasePostEntity extends BaseEntity {
     protected String userFirstName;
     protected String userLastName;
 
-
-    @Builder // makes this a builder pattern class
-    public BasePostEntity(String body, String userFirstName, String userLastName){
-        this.body = body;
-        this.userFirstName = userFirstName;
-        this.userLastName = userLastName;
-
-    }
-
-    /**
-     * updates entity's body
-     * @param body
-     */
-    public void update(String body) {
-        this.body = body;
-    }
 }
 

@@ -1,6 +1,7 @@
 package kr.alldent.alldentalclinicwebsite.domain.post;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,18 +19,19 @@ import javax.persistence.Entity;
  */
 @Getter
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Comment extends BasePostEntity {
 
     @Column(columnDefinition = "LONG", nullable = false)
     private long originPostId;
 
-    @Builder
-    public Comment(String body, long originPostId, String userFirstName, String userLastName){
+    /**
+     * updates entity's body
+     * @param body the new body that will replace the old one
+     */
+    public void update(String body) {
         this.body = body;
-        this.originPostId = originPostId;
-        this.userFirstName = userFirstName;
-        this.userLastName = userLastName;
     }
 
 }
