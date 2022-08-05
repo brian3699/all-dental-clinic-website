@@ -23,13 +23,13 @@ public abstract class BasePostEntity extends BaseEntity {
 
     @Id // Priority key of the table
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    protected long id;
 
     @Column(columnDefinition = "TEXT", nullable = false)
-    private String body;
+    protected String body;
 
-    private String userFirstName;
-    private String userLastName;
+    protected String userFirstName;
+    protected String userLastName;
 
 
     @Builder // makes this a builder pattern class
