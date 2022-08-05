@@ -23,7 +23,7 @@ import javax.persistence.*;
 public abstract class BasePostEntity extends BaseEntity {
 
 
-    @Id // Priority key of the table
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected long id;
 
