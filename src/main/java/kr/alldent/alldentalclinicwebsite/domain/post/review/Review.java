@@ -25,7 +25,7 @@ import java.text.SimpleDateFormat;
 @Entity
 public class Review extends BasePostEntity {
 
-    @Column(length = 500, nullable = false)
+    @Column(length = 500)
     private String title;
 
     @Column(columnDefinition = "DATE")

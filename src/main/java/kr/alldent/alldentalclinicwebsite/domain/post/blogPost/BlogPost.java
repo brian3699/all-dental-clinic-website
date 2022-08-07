@@ -22,7 +22,7 @@ import javax.persistence.Entity;
 @Entity
 public class BlogPost extends BasePostEntity {
 
-    @Column(length = 500, nullable = false)
+    @Column(length = 500)
     private String title;
 
     protected String body;

@@ -20,12 +20,19 @@ import javax.persistence.Entity;
  */
 @Getter
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
 public class Comment extends BasePostEntity {
 
     @Column
     private long originPostId;
+
+    @Builder
+    public Comment(String body, String userFirstName, String userLastName, long originPostId){
+        this.originPostId = originPostId;
+        this.body = body;
+        this.userFirstName = userFirstName;
+        this.userLastName = userLastName;
+    }
 
     /**
      * updates entity's body
