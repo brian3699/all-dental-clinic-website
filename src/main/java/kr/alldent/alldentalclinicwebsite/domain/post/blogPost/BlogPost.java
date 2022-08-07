@@ -2,6 +2,7 @@ package kr.alldent.alldentalclinicwebsite.domain.post.blogPost;
 
 import kr.alldent.alldentalclinicwebsite.domain.post.BasePostEntity;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -18,12 +19,24 @@ import javax.persistence.Entity;
  */
 @Getter
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
 public class BlogPost extends BasePostEntity {
 
     @Column(length = 500, nullable = false)
     private String title;
+
+    protected String body;
+
+    protected String userFirstName;
+    protected String userLastName;
+
+    @Builder
+    public BlogPost(String body, String userFirstName, String userLastName, String title){
+        this.title = title;
+        this.body = body;
+        this.userFirstName = userFirstName;
+        this.userLastName = userLastName;
+    }
 
     /**
      * updates entity's title and body

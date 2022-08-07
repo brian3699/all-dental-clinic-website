@@ -12,7 +12,13 @@ repositories {
 	mavenCentral()
 }
 
+
+test {
+	useJUnitPlatform()
+}
+
 dependencies {
+
 	//(3)
 	implementation('org.springframework.boot:spring-boot-starter-web')
 	implementation('org.springframework.boot:spring-boot-starter-mustache')
@@ -29,6 +35,5 @@ dependencies {
 
 
 	testImplementation('org.springframework.boot:spring-boot-starter-test')
-
 
 }

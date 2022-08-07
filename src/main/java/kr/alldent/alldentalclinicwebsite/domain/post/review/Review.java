@@ -28,7 +28,7 @@ public class Review extends BasePostEntity {
     @Column(length = 500, nullable = false)
     private String title;
 
-    @Column(columnDefinition = "DATE", nullable = false)
+    @Column(columnDefinition = "DATE")
     private Date visitDate;
 
     /**

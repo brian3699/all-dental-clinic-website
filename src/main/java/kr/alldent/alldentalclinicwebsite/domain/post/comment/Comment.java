@@ -24,7 +24,7 @@ import javax.persistence.Entity;
 @Entity
 public class Comment extends BasePostEntity {
 
-    @Column(columnDefinition = "LONG", nullable = false)
+    @Column
     private long originPostId;
 
     /**
