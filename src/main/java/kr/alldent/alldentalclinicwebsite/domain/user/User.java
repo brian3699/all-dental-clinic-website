@@ -25,7 +25,7 @@ public class User extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
@@ -46,32 +46,38 @@ public class User extends BaseEntity {
     @Column
     private String photoUrl;
 
-    /**
-     * Updates the User entity
-     * @param role user's role in the website. Either general user or administrator
-     * @param email user's email
-     * @param phoneNumber user's phone number
-     * @param firstName user's first name
-     * @param lastName user's last name
-     * @param photoUrl url of user's photo
-     * @return updated User entity
-     */
-    public User update(Role role, String phoneNumber, String email, String firstName, String lastName, String photoUrl) {
+    @Builder
+    public User(Role role, long phoneNumber, String email, String firstName, String lastName, String photoUrl) {
+        this.role = role;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.photoUrl = photoUrl;
+    }
+
+        /**
+         * Updates the User entity
+         * @param role user's role in the website. Either general user or administrator
+         * @param email user's email
+         * @param phoneNumber user's phone number
+         * @param firstName user's first name
+         * @param lastName user's last name
+         * @param photoUrl url of user's photo
+         * @return updated User entity
+         */
+    public User update(Role role, long phoneNumber, String email, String firstName, String lastName, String photoUrl) {
         // ensures the local variable is only updated when the parameter is not null
-        updateIfNotNull(this.role, role);
-        updateIfNotNull(this.phoneNumber, phoneNumber);
-        updateIfNotNull(this.firstName, firstName);
-        updateIfNotNull(this.lastName, lastName);
+        this.role = role;
+        this.phoneNumber = phoneNumber;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.photoUrl =  photoUrl;
 
         return this;
     }
 
-    // this is a helper method that ensures the local variable is only updated when the parameter is not null
-    private void updateIfNotNull(Object curr, Object input){
-        if(input != null) curr = input;
-    }
 
     /**
      * Return user's role
