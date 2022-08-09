@@ -31,50 +31,70 @@ public class User extends BaseEntity {
     @Column(nullable = false)
     private Role role;
 
+    // Both Google and Naver authenticated users
     @Column
     private String email;
 
+    // Both Google and Naver authenticated users
     @Column(nullable = false)
-    private Long phoneNumber;
+    private String name;
 
-    @Column(nullable = false)
-    private String firstName;
-
-    @Column(nullable = false)
-    private String lastName;
-
+    // Both Google and Naver authenticated users
     @Column
     private String photoUrl;
 
+    // Only Naver authenticated users
+    @Column
+    private String birthDay;
+
+    // Only Naver authenticated users
+    @Column
+    private String age;
+
+    // Only Naver authenticated users
+    @Column
+    private String phoneNumber;
+
+    // Only Naver authenticated users
+    @Column
+    private String gender;
+
+
     @Builder
-    public User(Role role, long phoneNumber, String email, String firstName, String lastName, String photoUrl) {
+    public User(Role role, String email, String name, String photoUrl, String birthDay,
+                String age, String phoneNumber, String gender) {
         this.role = role;
-        this.phoneNumber = phoneNumber;
         this.email = email;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.name = name;
         this.photoUrl = photoUrl;
+
+        // Only Naver authenticated users
+        this.birthDay = birthDay;
+        this.age = age;
+        this.phoneNumber = phoneNumber;
+        this.gender = gender;
     }
 
         /**
          * Updates the User entity
          * @param role user's role in the website. Either general user or administrator
          * @param email user's email
-         * @param phoneNumber user's phone number
-         * @param firstName user's first name
-         * @param lastName user's last name
+         * @param name user's name
          * @param photoUrl url of user's photo
          * @return updated User entity
          */
-    public User update(Role role, long phoneNumber, String email, String firstName, String lastName, String photoUrl) {
-        // ensures the local variable is only updated when the parameter is not null
+    public User update(Role role, String email, String name, String photoUrl, String birthDay,
+                       String age, String phoneNumber, String gender) {
         this.role = role;
-        this.phoneNumber = phoneNumber;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.name = name;
         this.email = email;
         this.photoUrl =  photoUrl;
 
+        // Only Naver authenticated users
+        this.birthDay = birthDay;
+        this.age = age;
+        this.phoneNumber = phoneNumber;
+        this.gender = gender;
         return this;
     }
 

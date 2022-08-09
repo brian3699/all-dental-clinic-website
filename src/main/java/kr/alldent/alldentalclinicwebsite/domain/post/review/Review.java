@@ -21,7 +21,6 @@ import java.text.SimpleDateFormat;
  */
 @Getter
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
 public class Review extends BasePostEntity {
 
@@ -30,6 +29,15 @@ public class Review extends BasePostEntity {
 
     @Column(columnDefinition = "DATE")
     private Date visitDate;
+
+    @Builder
+    public Review(String userFirstName, String userLastName,String title, String body, Date visitDate){
+        this.userFirstName = userFirstName;
+        this.userLastName = userLastName;
+        this.title = title;
+        this.body = body;
+        this.visitDate = visitDate;
+    }
 
     /**
      * updates entity's title, visitDate, and body

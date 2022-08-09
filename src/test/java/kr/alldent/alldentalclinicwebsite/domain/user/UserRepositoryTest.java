@@ -15,8 +15,7 @@ class UserRepositoryTest {
     Role role = Role.ADMIN;
     long phoneNumber = 00000000000;
     String email = "testemail@gmail.com";
-    String firstName = "first";
-    String lastName = "last";
+    String name = "name";
     String photoUrl = "url.com";
 
     @Autowired
@@ -27,10 +26,8 @@ class UserRepositoryTest {
     public void testSave() {
         userRepository.save(User.builder()
                 .role(role)
-                .phoneNumber(phoneNumber)
                 .email(email)
-                .firstName(firstName)
-                .lastName(lastName)
+                .name(name)
                 .photoUrl(photoUrl)
                 .build());
 
@@ -39,10 +36,8 @@ class UserRepositoryTest {
         User firstUser = userList.get(0);
 
         Assertions.assertEquals(role.getKey(), firstUser.getRole().getKey(),  "role is not saved correctly");
-        Assertions.assertEquals(phoneNumber, firstUser.getPhoneNumber(),  "phoneNumber is not saved correctly");
         Assertions.assertEquals(email, firstUser.getEmail(), "email is not saved correctly");
-        Assertions.assertEquals(firstName, firstUser.getFirstName(), "firstName is not saved correctly");
-        Assertions.assertEquals(lastName, firstUser.getLastName(), "lastName is not saved correctly");
+        Assertions.assertEquals(name, firstUser.getName(), "name is not saved correctly");
         Assertions.assertEquals(photoUrl, firstUser.getPhotoUrl(), "photourl is not saved correctly");
     }
 
@@ -50,13 +45,11 @@ class UserRepositoryTest {
     public void testUpdate() {
         User firstUser = userRepository.findAll().get(0);
 
-        firstUser.update(Role.USER, phoneNumber+1, email+1, firstName+1, lastName+1, photoUrl+1);
+        firstUser.update(Role.USER, email+1, name+1, photoUrl+1);
 
-        Assertions.assertEquals(phoneNumber+1, firstUser.getPhoneNumber(),  "phoneNumber is not updated correctly");
         Assertions.assertEquals(Role.USER.getKey(), firstUser.getRole().getKey(),  "role is not updated correctly");
         Assertions.assertEquals(email+1, firstUser.getEmail(),  "email is not updated correctly");
-        Assertions.assertEquals(firstName+1, firstUser.getFirstName(),  "firstName is not updated correctly");
-        Assertions.assertEquals(lastName+1, firstUser.getLastName(),  "lastName is not updated correctly");
+        Assertions.assertEquals(name+1, firstUser.getName(),  "firstName is not updated correctly");
         Assertions.assertEquals(photoUrl+1, firstUser.getPhotoUrl(),  "photourl is not updated correctly");
     }
 
