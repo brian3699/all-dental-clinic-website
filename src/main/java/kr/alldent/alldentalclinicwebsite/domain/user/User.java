@@ -44,6 +44,7 @@ public class User extends BaseEntity {
     private String photoUrl;
 
     // Only Naver authenticated users
+    // MM-DD form
     @Column
     private String birthDay;
 
@@ -56,13 +57,14 @@ public class User extends BaseEntity {
     private String phoneNumber;
 
     // Only Naver authenticated users
+    //F: female, M: male, U: unidentified
     @Column
-    private String gender;
+    private Gender gender;
 
 
     @Builder
     public User(Role role, String email, String name, String photoUrl, String birthDay,
-                String age, String phoneNumber, String gender) {
+                String age, String phoneNumber, Gender gender) {
         this.role = role;
         this.email = email;
         this.name = name;
@@ -84,7 +86,7 @@ public class User extends BaseEntity {
          * @return updated User entity
          */
     public User update(Role role, String email, String name, String photoUrl, String birthDay,
-                       String age, String phoneNumber, String gender) {
+                       String age, String phoneNumber, Gender gender) {
         this.role = role;
         this.name = name;
         this.email = email;
