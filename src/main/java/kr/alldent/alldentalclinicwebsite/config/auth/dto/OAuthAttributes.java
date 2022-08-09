@@ -4,10 +4,11 @@ import kr.alldent.alldentalclinicwebsite.domain.user.Gender;
 import kr.alldent.alldentalclinicwebsite.domain.user.Role;
 import kr.alldent.alldentalclinicwebsite.domain.user.User;
 import lombok.Builder;
+import lombok.Getter;
 
 import java.util.Map;
 
-@Builder
+@Getter
 public class OAuthAttributes {
 
     private Map<String, Object> attributes;
@@ -22,12 +23,12 @@ public class OAuthAttributes {
     private String age;
     private String phoneNumber;
     //F: female, M: male, U: unidentified
-    private String gender;
+    private Gender gender;
 
 
     @Builder
     public OAuthAttributes(Map<String, Object> attributes, String nameAttributeKey, String name, String email,
-                           String photoUrl, String birthDay, String age, String phoneNumber, String gender) {
+                           String photoUrl, String birthDay, String age, String phoneNumber, Gender gender) {
         this.attributes = attributes;
         this.nameAttributeKey = nameAttributeKey;
         this.name = name;
@@ -71,10 +72,17 @@ public class OAuthAttributes {
                 .birthDay((String) response.get("birthday"))
                 .age((String) response.get("age"))
                 .phoneNumber((String) response.get("mobile"))
-                .gender((String) response.get("gender"))
+                .gender(changeStringToGender((String) response.get("gender")))
                 .attributes(response)
                 .nameAttributeKey(userNameAttributeName)
                 .build();
+    }
+
+    private static Gender changeStringToGender(String gender){
+        Gender eNumGender = Gender.U;
+        if(gender != null) eNumGender = Gender.valueOf(gender);
+
+        return eNumGender;
     }
 
 
@@ -83,9 +91,6 @@ public class OAuthAttributes {
      * @return User entity
      */
     public User toEntity() {
-        Gender eNumGender = Gender.U;
-
-        if(gender != null) eNumGender = Gender.valueOf(gender);
 
         return User.builder()
                 .role(Role.USER)
@@ -95,7 +100,7 @@ public class OAuthAttributes {
                 .birthDay(birthDay)
                 .age(age)
                 .phoneNumber(phoneNumber)
-                .gender(eNumGender)
+                .gender(gender)
                 .build();
     }
 }

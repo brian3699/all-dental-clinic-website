@@ -8,8 +8,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     /**
      * makes it possible to search for existing users during new customer register
-     * @param PhoneNumber user's phone number
+     * @param email user's email
      * @return Optional<User>
      */
-    Optional<User> findByPhoneNumber(Long PhoneNumber);
+    Optional<User> findByEmail(String email);
 }

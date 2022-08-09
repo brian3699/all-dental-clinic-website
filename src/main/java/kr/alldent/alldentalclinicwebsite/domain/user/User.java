@@ -101,6 +101,7 @@ public class User extends BaseEntity {
     }
 
 
+
     /**
      * Return user's role
      * @return user's role
