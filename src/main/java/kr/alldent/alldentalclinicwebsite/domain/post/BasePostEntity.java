@@ -30,8 +30,7 @@ public abstract class BasePostEntity extends BaseEntity {
     @Column(columnDefinition = "TEXT", nullable = false)
     protected String body;
 
-    protected String userFirstName;
-    protected String userLastName;
+    protected String name;
 
 }
 

@@ -31,9 +31,8 @@ public class Review extends BasePostEntity {
     private Date visitDate;
 
     @Builder
-    public Review(String userFirstName, String userLastName,String title, String body, Date visitDate){
-        this.userFirstName = userFirstName;
-        this.userLastName = userLastName;
+    public Review(String name,String title, String body, Date visitDate){
+        this.name = name;
         this.title = title;
         this.body = body;
         this.visitDate = visitDate;

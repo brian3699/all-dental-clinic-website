@@ -27,11 +27,10 @@ public class Comment extends BasePostEntity {
     private long originPostId;
 
     @Builder
-    public Comment(String body, String userFirstName, String userLastName, long originPostId){
+    public Comment(String body, String name, long originPostId){
         this.originPostId = originPostId;
         this.body = body;
-        this.userFirstName = userFirstName;
-        this.userLastName = userLastName;
+        this.name = name;
     }
 
     /**
