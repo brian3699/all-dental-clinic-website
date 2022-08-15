@@ -28,8 +28,17 @@ public class IndexController {
     }
 
     @GetMapping("/review")
-    public String test(Model model, @LoginUser SessionUser user) {
+    public String reviewList(Model model, @LoginUser SessionUser user) {
         model.addAttribute("review", reviewService.findAllDesc());
+        if (user != null) {
+            model.addAttribute("userName", user.getName());
+        }
+        return "review-list";
+    }
+
+    @GetMapping("/review/{id}")
+    public String reviewPage(@PathVariable Long id, Model model, @LoginUser SessionUser user) {
+        model.addAttribute("review", reviewService.findById(id));
         if (user != null) {
             model.addAttribute("userName", user.getName());
         }
@@ -37,12 +46,12 @@ public class IndexController {
     }
 
     @GetMapping("/review/new")
-    public String postsSave(){
+    public String reviewSave(){
         return "review-new";
     }
 
     @GetMapping("/review/update/{id}")
-    public String postsUpdate(@PathVariable Long id, Model model) {
+    public String reviewUpdate(@PathVariable Long id, Model model) {
         ReviewResponseDto dto = reviewService.findById(id);
         model.addAttribute("post", dto);
 

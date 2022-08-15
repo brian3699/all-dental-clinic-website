@@ -25,7 +25,7 @@ var main = {
             type: 'POST',
             url: '/api/review',
             dataType: 'json',
-            contentType:'application/json; charset=utf-8',
+            contentType:'application/json',
             data: JSON.stringify(data)
         }).done(function() {
             alert('Your review has been registered');
