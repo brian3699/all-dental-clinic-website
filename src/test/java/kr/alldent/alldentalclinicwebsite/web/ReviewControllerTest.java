@@ -1,11 +1,10 @@
 package kr.alldent.alldentalclinicwebsite.web;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import kr.alldent.alldentalclinicwebsite.domain.post.review.Review;
 import kr.alldent.alldentalclinicwebsite.domain.post.review.ReviewRepository;
-import kr.alldent.alldentalclinicwebsite.web.dto.ReviewSaveRequestDto;
-import kr.alldent.alldentalclinicwebsite.web.dto.ReviewUpdateRequestDto;
+import kr.alldent.alldentalclinicwebsite.web.dto.review.ReviewSaveRequestDto;
+import kr.alldent.alldentalclinicwebsite.web.dto.review.ReviewUpdateRequestDto;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

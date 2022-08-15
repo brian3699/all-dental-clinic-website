@@ -30,6 +30,7 @@ public abstract class BasePostEntity extends BaseEntity {
     @Column(columnDefinition = "TEXT", nullable = false)
     protected String body;
 
+    @Column(columnDefinition = "TEXT")
     protected String name;
 
 }

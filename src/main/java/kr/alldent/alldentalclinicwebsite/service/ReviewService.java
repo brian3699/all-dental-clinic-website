@@ -2,12 +2,11 @@ package kr.alldent.alldentalclinicwebsite.service;
 
 import kr.alldent.alldentalclinicwebsite.domain.post.review.Review;
 import kr.alldent.alldentalclinicwebsite.domain.post.review.ReviewRepository;
-import kr.alldent.alldentalclinicwebsite.web.dto.ReviewSaveRequestDto;
-import kr.alldent.alldentalclinicwebsite.web.dto.ReviewResponseDto;
-import kr.alldent.alldentalclinicwebsite.web.dto.ReviewResponseListDto;
-import kr.alldent.alldentalclinicwebsite.web.dto.ReviewUpdateRequestDto;
+import kr.alldent.alldentalclinicwebsite.web.dto.review.ReviewSaveRequestDto;
+import kr.alldent.alldentalclinicwebsite.web.dto.review.ReviewResponseDto;
+import kr.alldent.alldentalclinicwebsite.web.dto.review.ReviewResponseListDto;
+import kr.alldent.alldentalclinicwebsite.web.dto.review.ReviewUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -28,7 +27,7 @@ public class ReviewService {
     @Transactional
     public Long update(Long id, ReviewUpdateRequestDto reviewUpdateRequestDto) {
         Review review = reviewRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("해당 사용자가 없습니다. id=" + id));
+                .orElseThrow(() -> new IllegalArgumentException("User not in user list:" + id));
 
         review.update(reviewUpdateRequestDto.getVisitDate(), reviewUpdateRequestDto.getTitle(), reviewUpdateRequestDto.getBody());
 
@@ -39,7 +38,7 @@ public class ReviewService {
     @Transactional
     public void delete (Long id) {
         Review review = reviewRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("해당 사용자가 없습니다. id=" + id));
+                .orElseThrow(() -> new IllegalArgumentException("User not in user list:" + id));
 
         reviewRepository.delete(review);
     }
@@ -47,7 +46,7 @@ public class ReviewService {
     @Transactional
     public ReviewResponseDto findById(Long id) {
         Review entity = reviewRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("해당 사용자가 없습니다. id=" + id));
+                .orElseThrow(() -> new IllegalArgumentException("User not in user list:" + id));
 
         return new ReviewResponseDto(entity);
     }

@@ -1,4 +1,4 @@
-package kr.alldent.alldentalclinicwebsite.web.dto;
+package kr.alldent.alldentalclinicwebsite.web.dto.review;
 
 import kr.alldent.alldentalclinicwebsite.domain.post.review.Review;
 import lombok.Getter;

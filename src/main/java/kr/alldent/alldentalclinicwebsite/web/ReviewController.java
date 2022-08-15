@@ -1,17 +1,13 @@
 package kr.alldent.alldentalclinicwebsite.web;
 
-import kr.alldent.alldentalclinicwebsite.config.auth.dto.SessionUser;
 import kr.alldent.alldentalclinicwebsite.service.ReviewService;
-import kr.alldent.alldentalclinicwebsite.web.dto.ReviewResponseDto;
-import kr.alldent.alldentalclinicwebsite.web.dto.ReviewResponseListDto;
-import kr.alldent.alldentalclinicwebsite.web.dto.ReviewSaveRequestDto;
-import kr.alldent.alldentalclinicwebsite.web.dto.ReviewUpdateRequestDto;
+import kr.alldent.alldentalclinicwebsite.web.dto.review.ReviewResponseDto;
+import kr.alldent.alldentalclinicwebsite.web.dto.review.ReviewResponseListDto;
+import kr.alldent.alldentalclinicwebsite.web.dto.review.ReviewSaveRequestDto;
+import kr.alldent.alldentalclinicwebsite.web.dto.review.ReviewUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @RequiredArgsConstructor

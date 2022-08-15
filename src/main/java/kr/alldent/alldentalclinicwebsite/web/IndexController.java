@@ -3,7 +3,7 @@ package kr.alldent.alldentalclinicwebsite.web;
 import kr.alldent.alldentalclinicwebsite.config.auth.LoginUser;
 import kr.alldent.alldentalclinicwebsite.config.auth.dto.SessionUser;
 import kr.alldent.alldentalclinicwebsite.service.ReviewService;
-import kr.alldent.alldentalclinicwebsite.web.dto.ReviewResponseDto;
+import kr.alldent.alldentalclinicwebsite.web.dto.review.ReviewResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
