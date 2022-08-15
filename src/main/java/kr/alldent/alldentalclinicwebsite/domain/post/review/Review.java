@@ -31,7 +31,7 @@ public class Review extends BasePostEntity {
     private Date visitDate;
 
     @Builder
-    public Review(String name,String title, String body, Date visitDate){
+    public Review(Date visitDate, String name,String title, String body){
         this.name = name;
         this.title = title;
         this.body = body;
@@ -44,7 +44,7 @@ public class Review extends BasePostEntity {
      * @param visitDate the new visitDate that will replace the old one
      * @param body the new body that will replace the old one
      */
-    public void update(String title, Date visitDate, String body) {
+    public void update(Date visitDate, String title, String body) {
         this.title = title;
         this.visitDate = visitDate;
         this.body = body;

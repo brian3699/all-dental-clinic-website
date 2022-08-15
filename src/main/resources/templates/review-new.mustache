@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+</head>
+
+<h1>New Post</h1>
+
+<div class="col-md-12">
+    <div class="col-md-4">
+        <form>
+            <div class="form-group">
+                <label for="title">title</label>
+                <input type="text" class="form-control" id="title" placeholder="Please enter title">
+            </div>
+            <div class="form-group">
+                <label for="name"> User name </label>
+                <input type="text" class="form-control" id="name" placeholder="Please enter user name">
+            </div>
+            <div class="form-group">
+                <label for="body"> Content </label>
+                <textarea class="form-control" id="body" placeholder="Please enter your review"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="visitDate"> Visit Date </label>
+                <input type="date" class="form-control" id="visitDate" placeholder="Please choose a date">
+            </div>
+        </form>
+        <a href="/review" role="button" class="btn btn-secondary">Discard</a>
+        <button type="button" class="btn btn-primary" id="btn-save">Post</button>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script src="/static/js/app/review.js"></script>
+
+</html>
+

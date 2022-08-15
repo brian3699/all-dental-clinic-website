@@ -34,8 +34,8 @@ class CommentRepositoryTest {
     public void testSave() {
         commentRepository.save(Comment.builder()
                 .body(body)
-                .userFirstName(userFirstName)
-                .userLastName(userLastName)
+                //.userFirstName(userFirstName)
+                //.userLastName(userLastName)
                 .originPostId(originPostId)
                 .build());
 
@@ -45,8 +45,8 @@ class CommentRepositoryTest {
 
         Assertions.assertEquals(firstPost.getBody(), body, "body is not saved correctly");
         Assertions.assertEquals(firstPost.getOriginPostId(), originPostId, "originPostId is not saved correctly");
-        Assertions.assertEquals(firstPost.getUserFirstName(), userFirstName, "userFirstName is not saved correctly");
-        Assertions.assertEquals(firstPost.getUserLastName(), userLastName, "userLastName is not saved correctly");
+        //Assertions.assertEquals(firstPost.getUserFirstName(), userFirstName, "userFirstName is not saved correctly");
+        //Assertions.assertEquals(firstPost.getUserLastName(), userLastName, "userLastName is not saved correctly");
 
 
     }

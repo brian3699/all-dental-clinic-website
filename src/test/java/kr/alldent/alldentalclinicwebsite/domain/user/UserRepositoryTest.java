@@ -45,7 +45,7 @@ class UserRepositoryTest {
     public void testUpdate() {
         User firstUser = userRepository.findAll().get(0);
 
-        firstUser.update(Role.USER, email+1, name+1, photoUrl+1);
+        //firstUser.update(Role.USER, email+1, name+1, photoUrl+1);
 
         Assertions.assertEquals(Role.USER.getKey(), firstUser.getRole().getKey(),  "role is not updated correctly");
         Assertions.assertEquals(email+1, firstUser.getEmail(),  "email is not updated correctly");
