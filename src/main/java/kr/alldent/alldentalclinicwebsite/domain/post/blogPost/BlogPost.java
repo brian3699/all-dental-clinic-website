@@ -27,15 +27,13 @@ public class BlogPost extends BasePostEntity {
 
     protected String body;
 
-    protected String userFirstName;
-    protected String userLastName;
+    protected String name;
 
     @Builder
-    public BlogPost(String body, String userFirstName, String userLastName, String title){
+    public BlogPost(String body, String name, String title){
         this.title = title;
         this.body = body;
-        this.userFirstName = userFirstName;
-        this.userLastName = userLastName;
+        this.name = name;
     }
 
     /**

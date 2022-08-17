@@ -2,6 +2,7 @@ package kr.alldent.alldentalclinicwebsite.web;
 
 import kr.alldent.alldentalclinicwebsite.config.auth.LoginUser;
 import kr.alldent.alldentalclinicwebsite.config.auth.dto.SessionUser;
+import kr.alldent.alldentalclinicwebsite.service.BlogPostService;
 import kr.alldent.alldentalclinicwebsite.service.ReviewService;
 import kr.alldent.alldentalclinicwebsite.web.dto.review.ReviewResponseDto;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +19,8 @@ public class IndexController {
 
     private final HttpSession httpSession;
     private final ReviewService reviewService;
+    private final BlogPostService blogPostService;
+
 
     @GetMapping("/")
     public String index(Model model, @LoginUser SessionUser user) {
@@ -56,6 +59,15 @@ public class IndexController {
         model.addAttribute("post", dto);
 
         return "posts-update";
+    }
+
+    @GetMapping("/blog")
+    public String blogMain(Model model, @LoginUser SessionUser user){
+        model.addAttribute("blog", blogPostService.findAllDesc());
+        if (user != null) {
+            model.addAttribute("userName", user.getName());
+        }
+        return "blog";
     }
 
 }
