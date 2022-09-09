@@ -7,9 +7,11 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public enum Service {
 
-    FIRST_VISIT("SERVICE_FIRST_VISIT", "First time visiting the dental clinic"),
-    SCALING("SERVICE_SCALING", "Dental scaling"),
-    WHITENING("SERVICE_WHITENING", "Teeth whitening");
+    SERVICE_FIRST_VISIT("SERVICE_FIRST_VISIT", "First time visiting the dental clinic"),
+    SERVICE_SCALING("SERVICE_SCALING", "Dental scaling"),
+    SERVICE_WHITENING("SERVICE_WHITENING", "Teeth whitening"),
+    SERVICE_WISDOM_TEETH("SERVICE_WISDOM_TEETH", "Wisdom teeth extraction"),
+    SERVICE_CAVITY_TREATMENT("SERVICE_CAVITY_TREATMENT", "Cavity treatment");
 
     private final String key;
     private final String description;

@@ -3718,6 +3718,24 @@ fieldset:disabled .btn {
   border-color: #f6d708;
 }
 
+.btn-green {
+  color: #fff;
+  background-color: #77cc38;
+  border-color: #77cc38;
+}
+
+.btn-purple {
+  color: #fff;
+  background-color: #9b26c9;
+  border-color: #9b26c9;
+}
+
+.btn-white {
+  color: #000000;
+  background-color: #ffffff;
+  border-color: #000000;
+}
+
 .btn-dark:hover {
   color: #fff;
   background-color: #151518;

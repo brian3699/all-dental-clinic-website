@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+    {{>layout/header}}
+
+<body>
+<h1>Make new reservation</h1>
+
+<div class="col-md-12">
+    <div class="col-md-4">
+        <form>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" value={{name}} readonly>
+            </div>
+            <div class="form-group">
+                <label for="uid">User id</label>
+                <input type="text" class="form-control" id="uid" value={{uid}} readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="reservationDate"> Visiting date </label>
+                <input type="date" id="reservationDate" placeholder="Please choose a date" min = "tomorrow" required>
+            </div>
+
+
+
+            <div class="form-group">
+                <label for="reservationTime"> Visiting Time </label>
+                <select name="service" class="form-control" id="reservationTime" required>
+                    <option value="1000">10:00</option>
+                    <option value="1030">10:30</option>
+                    <option value="1100">11:00</option>
+                    <option value="1130">11:30</option>
+                    <option value="1200">12:00</option>
+                    <option value="1230">12:30</option>
+                    <option value="1400">14:00</option>
+                    <option value="1430">14:30</option>
+                    <option value="1500">15:00</option>
+                    <option value="1530">15:30</option>
+                    <option value="1600">16:00</option>
+                    <option value="1630">16:30</option>
+                    <option value="1700">17:00</option>
+                    <option value="1730">17:30</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="service"> Reason of visit </label>
+                <select name="service" class="form-control" id="service" required>
+                    <option value="SERVICE_FIRST_VISIT">First visit</option>
+                    <option value="SERVICE_CAVITY_TREATMENT">Cavity treatment</option>
+                    <option value="SERVICE_SCALING">Dental scaling</option>
+                    <option value="SERVICE_WHITENING">Teeth whitening</option>
+                    <option value="SERVICE_WISDOM_TEETH">Wisdom teeth extraction</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="phoneNumber">Phone number</label>
+                <input type="text" class="form-control" id="phoneNumber" placeholder="Please enter your number" required>
+            </div>
+
+        </form>
+
+
+
+        <a href="/reservation" role="button" class="btn btn-secondary">Discard</a>
+        <button type="button" class="btn btn-primary" id="btn-save-reservation">Submit</button>
+    </div>
+</div>
+
+<!-- =======================
+Contact form END -->
+
+
+{{>layout/footer}}
+
+<script src="/js/app/reservation.js"></script>
+
+</body>
+</html>

@@ -3,6 +3,7 @@ package kr.alldent.alldentalclinicwebsite.domain.reservation;
 
 import kr.alldent.alldentalclinicwebsite.domain.BaseEntity;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -26,37 +27,52 @@ public class Reservation extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(nullable = false)
+    private long uid;
+
     @Column(columnDefinition = "DATE", nullable = false)
-    private Date reservationDateTime;
+    private Date reservationDate;
+
+    @Column(nullable = false)
+    private String reservationTime;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private Service serviceType;
+    private Service service;
 
     @Column(nullable = false)
-    private String firstName;
+    private String name;
 
     @Column(nullable = false)
-    private String lastName;
-
-    @Column(nullable = false)
-    private Long phoneNumber;
+    private String phoneNumber;
 
 
     /**
      * updates entity's reservationDateTime, serviceType, firstName, lastName, and phoneNumber
-     * @param reservationDateTime date and time of reservation
-     * @param firstName patient's first name
-     * @param lastName patient's last name
+     * @param reservationDate date of reservation
+     * @param reservationTime time of reservation
      * @param phoneNumber patient's phone number
      */
-    public void update(Date reservationDateTime, Service serviceType, String firstName,
-                       String lastName, Long phoneNumber) {
-        this.reservationDateTime = reservationDateTime;
-        this.serviceType = serviceType;
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public void update(Date reservationDate, String reservationTime, String service, String phoneNumber) {
+        this.reservationDate = reservationDate;
+        this.reservationTime = reservationTime;
+        this.service = Service.valueOf(service);
         this.phoneNumber = phoneNumber;
     }
+
+    @Builder
+    public Reservation(Date reservationDate, Long uid, String reservationTime, String service, String name, String phoneNumber){
+        this.reservationDate = reservationDate;
+        this.uid = uid;
+        this.reservationTime = reservationTime;
+        this.service = Service.valueOf(service);
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getService(){
+        return service.getKey();
+    }
+
 
 }

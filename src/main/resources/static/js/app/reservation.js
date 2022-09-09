@@ -1,42 +1,46 @@
 var main = {
     init : function () {
-        const _this = this;
-        $('#btn-save').on('click', function () {
+        var _this = this;
+        $('#btn-save-reservation').on('click', function () {
             _this.save();
         });
 
-        $('#btn-update').on('click', function () {
+        $('#btn-update-review').on('click', function () {
             _this.update();
         });
 
-        $('#btn-delete').on('click', function () {
+        $('#btn-delete-review').on('click', function () {
             _this.delete();
         });
     },
+
+
     save : function () {
-        const data = {
-            visitDate: $('#visitDate').val(),
+        var data = {
+            uid: $('#uid').val(),
+            reservationDate: $('#reservationDate').val(),
+            reservationTime: $('#reservationTime').val(),
+            service: $('#service').val(),
             name: $('#name').val(),
-            title: $('#title').val(),
-            body: $('#body').val()
+            phoneNumber: $('#phoneNumber').val()
         };
 
         $.ajax({
             type: 'POST',
-            url: '/api/review',
+            url: '/api/reservation',
             dataType: 'json',
-            contentType:'application/json',
+            contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data)
         }).done(function() {
-            alert('Your review has been registered');
+            alert('Your reservation has been registered. See you soon!');
             window.location.href = '/';
         }).fail(function (error) {
             alert(JSON.stringify(error));
         });
     },
+
     update : function () {
         var data = {
-            visitDate: $('#visitDate').val(),
             title: $('#title').val(),
             content: $('#content').val()
         };
@@ -50,7 +54,7 @@ var main = {
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data)
         }).done(function() {
-            alert('Your review has been updated');
+            alert('Your post has been updated');
             window.location.href = '/';
         }).fail(function (error) {
             alert(JSON.stringify(error));

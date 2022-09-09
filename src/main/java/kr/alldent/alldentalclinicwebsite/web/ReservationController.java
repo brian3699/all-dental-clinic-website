@@ -1,19 +1,8 @@
 package kr.alldent.alldentalclinicwebsite.web;
 
-import kr.alldent.alldentalclinicwebsite.service.BlogPostService;
-import kr.alldent.alldentalclinicwebsite.web.dto.blogPost.BlogPostResponseDto;
-import kr.alldent.alldentalclinicwebsite.web.dto.blogPost.BlogPostSaveRequestDto;
-import kr.alldent.alldentalclinicwebsite.web.dto.blogPost.BlogPostUpdateRequestDto;
-import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+/*
 
-
-@RequiredArgsConstructor
-@RestController
-@ResponseBody
-public class BlogPostController {
     private final BlogPostService blogPostService;
 
     @PostMapping("/api/blog")
@@ -42,4 +31,24 @@ public class BlogPostController {
         return blogPostService.findAllDesc();
     }
 
+ */
+
+import kr.alldent.alldentalclinicwebsite.service.ReservationService;
+import kr.alldent.alldentalclinicwebsite.web.dto.reservation.ReservationSaveRequestDto;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@RequiredArgsConstructor
+@RestController
+@ResponseBody
+public class ReservationController {
+    private final ReservationService reservationService;
+
+    @PostMapping("/api/reservation")
+    public Long save(@RequestBody ReservationSaveRequestDto dto){
+        return reservationService.save(dto);
+    }
 }

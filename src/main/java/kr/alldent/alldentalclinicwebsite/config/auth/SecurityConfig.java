@@ -22,17 +22,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .headers().frameOptions().disable()
                 .and()
                 .authorizeRequests()
-                .antMatchers("/", "/css/**", "/images/**", "/js/**", "/h2-console/**", "/profile").permitAll()
-                .antMatchers("/review/**", "/js/**", "/static/**","/js/index.js", "/static/js/app/**").permitAll()
+                .antMatchers("/", "/css/**", "/images/**", "/js/**", "/h2-console/**", "/profile", "/review-new", "/review/new").permitAll()
+                .antMatchers("/review/**", "/js/**", "/static/**","/js/index.js", "/static/js/app/**", "/review/new", "/review/new/**").permitAll()
                 .antMatchers("/resources/**", "/js/**", "/static/**","/js/index.js", "/static/js/app/**").permitAll()
-
+                .antMatchers("/login", "/review/write").permitAll()
+                .antMatchers("/review/write").permitAll()
+                .antMatchers("/api/**").permitAll()
                 .antMatchers("/api/v1/**").hasRole(Role.USER.name())
                 .anyRequest().authenticated()
                 .and()
                 .logout()
                 .logoutSuccessUrl("/")
                 .and()
-                .oauth2Login()
+                .oauth2Login().loginPage("/login")
                 .userInfoEndpoint()
                 .userService(customOAuth2UserService);
     }
@@ -44,11 +46,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         corsConfiguration.addAllowedMethod("*");
         corsConfiguration.addAllowedHeader("*");
+
         corsConfiguration.addAllowedOrigin("http://localhost:8080/assets");
-        corsConfiguration.addAllowedOrigin("https://animate.style/");
+        corsConfiguration.addAllowedOrigin("http://localhost:8080/review/new");
+        corsConfiguration.addAllowedOrigin("/review/**");
+        corsConfiguration.addAllowedOrigin("/review/write");
+
 
 
         source.registerCorsConfiguration("/**", corsConfiguration);
+        source.registerCorsConfiguration("/review/**", corsConfiguration);
+        source.registerCorsConfiguration("/review/new", corsConfiguration);
+
+
         return source;
     }
 }

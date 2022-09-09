@@ -34,8 +34,7 @@ class BlogPostRepositoryTest {
     public void testSave() {
         blogPostRepository.save(BlogPost.builder()
                 .body(body)
-                .userFirstName(userFirstName)
-                .userLastName(userLastName)
+                .name(userLastName)
                 .title(title)
                 .build());
 
@@ -45,8 +44,6 @@ class BlogPostRepositoryTest {
 
         Assertions.assertEquals(firstPost.getBody(), body, "body is not saved correctly");
         Assertions.assertEquals(firstPost.getTitle(), title, "title is not saved correctly");
-        Assertions.assertEquals(firstPost.getUserFirstName(), userFirstName, "userFirstName is not saved correctly");
-        Assertions.assertEquals(firstPost.getUserLastName(), userLastName, "userLastName is not saved correctly");
 
 
     }
@@ -55,8 +52,7 @@ class BlogPostRepositoryTest {
     public void testTimeTracking() {
         blogPostRepository.save(BlogPost.builder()
                 .body(body)
-                .userFirstName(userFirstName)
-                .userLastName(userLastName)
+                .name(userLastName)
                 .title(title)
                 .build());
 

@@ -8,5 +8,4 @@ import java.util.Optional;
 
 public interface ReservationRepository extends JpaRepository<Reservation, Long> {
 
-    List<Optional<Reservation>> findByReservationDateTimeIsBetween(Date start, Date end);
 }
