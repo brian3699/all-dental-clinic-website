@@ -2,9 +2,11 @@ package kr.alldent.alldentalclinicwebsite.web;
 
 import kr.alldent.alldentalclinicwebsite.config.auth.LoginUser;
 import kr.alldent.alldentalclinicwebsite.config.auth.dto.SessionUser;
+import kr.alldent.alldentalclinicwebsite.domain.reservation.Reservation;
 import kr.alldent.alldentalclinicwebsite.service.BlogPostService;
 import kr.alldent.alldentalclinicwebsite.service.ReservationService;
 import kr.alldent.alldentalclinicwebsite.service.ReviewService;
+import kr.alldent.alldentalclinicwebsite.web.dto.reservation.ReservationResponseDto;
 import kr.alldent.alldentalclinicwebsite.web.dto.review.ReviewResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpSession;
+import java.sql.Date;
+import java.time.LocalDate;
 
 @RequiredArgsConstructor
 @Controller
@@ -23,6 +27,7 @@ public class IndexController {
     private final ReviewService reviewService;
     private final BlogPostService blogPostService;
     private final ReservationService reservationService;
+    private static final LocalDate TODAY = LocalDate.now();
 
 
     @GetMapping("/")
@@ -86,26 +91,39 @@ public class IndexController {
         return "blog";
     }
 
-    @GetMapping("/reservation")
-    public String reservation(Model model, @LoginUser SessionUser user){
-        if (user != null) {
-            model.addAttribute("userName", user.getName());
-            model.addAttribute("reservationList", reservationService.findByUid(user.getId()));
-        }
 
-        return "reservation";
-    }
-
-    @GetMapping("/reservation-new")
+    @GetMapping("/reservation/new")
     public String reservationNew(Model model, @LoginUser SessionUser user){
         if(user == null){
             return("/login");
         }
-
+        model.addAttribute("today", java.time.LocalDate.now());
         model.addAttribute("name", user.getName());
         model.addAttribute("uid", user.getId());
 
         return "reservation-new";
+    }
+
+
+
+    @GetMapping("/reservation/{id}")
+    public String reservationUpdate(@PathVariable Long id, Model model, @LoginUser SessionUser user){
+        if(user == null) return("/login");
+
+        ReservationResponseDto reservation = reservationService.findById(id);
+        model.addAttribute("reservation", reservation);
+
+        return "reservation-update";
+    }
+
+    @GetMapping("/reservation")
+    public String reservation(Model model, @LoginUser SessionUser user){
+        if(user == null){
+            return("/login");
+        }
+
+        model.addAttribute("reservation", reservationService.findByUid(user.getId()));
+        return "reservation";
     }
 
     @GetMapping("/login")
@@ -113,5 +131,6 @@ public class IndexController {
 
         return "login";
     }
+
 
 }

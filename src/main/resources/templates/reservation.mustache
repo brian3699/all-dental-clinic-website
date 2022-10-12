@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+    {{>layout/header}}
+
+<body>
+
+
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+
+    <!-- =======================
+    Inner intro START -->
+    <section class="bg-dark pattern-overlay-4 position-relative text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Title -->
+                    <h1 class="text-white-stroke display-5">Reservation</h1>
+                    <br>
+                    <!-- Breadcrumb -->
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =======================
+    Inner intro END -->
+
+
+    <!-- =======================
+    Faqs START -->
+    <section class="pb-3">
+        <div class="container">
+            <div class="row justify-content-between">
+                <!-- Left START -->
+                <div class="col-md-10 col-lg-7 mb-5">
+
+                    <!-- Membership and trials START -->
+                    <h3 class="mb-4 mt-5"></h3>
+                    <div class="accordion accordion-icon" id="accordionmemberfaq">
+                        {{#reservation}}
+                            <div class="accordion-item">
+                                <h5 class="accordion-header" id="heading-10">
+                                    <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-10" aria-expanded="false" aria-controls="collapse-10">
+                                        <h5> On {{reservationDate}} at {{reservationTime}}</h5>
+                                    </button>
+                                </h5>
+                                <div id="collapse-10" class="accordion-collapse collapse" aria-labelledby="heading-10" data-bs-parent="#accordionmemberfaq">
+                                    <div class="accordion-body">
+                                        {{service}}
+                                        <div>
+                                            <a href="/reservation/{{id}}" class="btn btn-sm btn-white mb-0 mx-2" style="float: right;">edit reservation</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        {{/reservation}}
+
+                    </div>
+                    <!-- Membership and trials END -->
+                </div>
+                <!-- Left END -->
+
+                <!-- Right START -->
+                <div class="col-md-4">
+
+
+                    <div>
+                        <a href="/reservation/new" class="btn btn-sm btn-dark mb-0 mx-2" style="float: right;">Make a new reservation</a>
+                    </div>
+
+
+                </div>
+                <!-- Right END -->
+
+
+            </div>
+        </div>
+    </section>
+    <!-- =======================
+    Faqs END -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+
+{{>layout/footer}}
+
+
+</body>
+</html>

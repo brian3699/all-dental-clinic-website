@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 /**
  * Main class of the project
  */
-@EnableJpaAuditing
 @SpringBootApplication
 public class AllDentalClinicWebsiteApplication {
 

@@ -54,10 +54,13 @@ public class Reservation extends BaseEntity {
      * @param phoneNumber patient's phone number
      */
     public void update(Date reservationDate, String reservationTime, String service, String phoneNumber) {
+        System.out.println("reservation update initiate success \n");
         this.reservationDate = reservationDate;
         this.reservationTime = reservationTime;
         this.service = Service.valueOf(service);
         this.phoneNumber = phoneNumber;
+        System.out.println("reservation update  success \n");
+
     }
 
     @Builder

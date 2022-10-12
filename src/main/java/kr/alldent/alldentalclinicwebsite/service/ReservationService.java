@@ -1,19 +1,20 @@
 package kr.alldent.alldentalclinicwebsite.service;
 
-import kr.alldent.alldentalclinicwebsite.domain.post.comment.Comment;
+import kr.alldent.alldentalclinicwebsite.domain.post.review.Review;
 import kr.alldent.alldentalclinicwebsite.domain.reservation.Reservation;
 import kr.alldent.alldentalclinicwebsite.domain.reservation.ReservationRepository;
-import kr.alldent.alldentalclinicwebsite.web.dto.comment.CommentResponseDto;
-import kr.alldent.alldentalclinicwebsite.web.dto.comment.CommentSaveRequestDto;
-import kr.alldent.alldentalclinicwebsite.web.dto.comment.CommentUpdateRequestDto;
 import kr.alldent.alldentalclinicwebsite.web.dto.reservation.ReservationResponseDto;
+import kr.alldent.alldentalclinicwebsite.web.dto.reservation.ReservationResponseListDto;
 import kr.alldent.alldentalclinicwebsite.web.dto.reservation.ReservationSaveRequestDto;
 import kr.alldent.alldentalclinicwebsite.web.dto.reservation.ReservationUpdateRequestDto;
+import kr.alldent.alldentalclinicwebsite.web.dto.review.ReviewResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -31,12 +32,15 @@ public class ReservationService {
     public Long update(Long id, ReservationUpdateRequestDto dto){
         Reservation reservation = reservationRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("User not in user list: id=" + id));
+        System.out.println("service update initiate success \n");
 
-        reservation.update(dto.getReservationDate(), dto.getReservationTime(),dto.getService(),dto.getPhoneNumber());
+        reservation.update(dto.getReservationDate(), dto.getReservationTime(),dto.getService(), dto.getPhoneNumber());
+        System.out.println("service update success \n");
         return id;
     }
 
-    @Transactional
+
+        @Transactional
     public void delete(Long id) {
         Reservation reservation = reservationRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("User not in user list: id=" + id));
@@ -44,14 +48,30 @@ public class ReservationService {
         reservationRepository.delete(reservation);
     }
 
-    //TODO: change to uid
     @Transactional
-    public ReservationResponseDto findByUid(Long id){
-        Reservation reservation = reservationRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("User not in user list: id=" + id));
+    public List<ReservationResponseListDto> findByUid(Long uid){
+        Date today = new java.sql.Date(Calendar.getInstance().getTime().getTime());
 
-        return new ReservationResponseDto(reservation);
+        try {
+            List<ReservationResponseListDto> dtoList = new ArrayList<>();
+            for (Reservation reservation : reservationRepository.findByUid(uid, today)) {
+                dtoList.add(new ReservationResponseListDto(reservation));
+            }
+            return dtoList;
+        } catch (Exception e){
+            return null;
+        }
     }
+
+    @Transactional
+    public ReservationResponseDto findById(Long id) {
+        Reservation entity = reservationRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("User not in user list:" + id));
+
+        return new ReservationResponseDto(entity);
+    }
+
+
 
 }
 

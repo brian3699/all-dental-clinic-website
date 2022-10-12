@@ -26,12 +26,4 @@ public class ReservationUpdateRequestDto {
 
     }
 
-    public Reservation toEntity(){
-        return Reservation.builder()
-                .reservationDate(reservationDate)
-                .reservationTime(reservationTime)
-                .service(service)
-                .phoneNumber(phoneNumber)
-                .build();
-    }
 }

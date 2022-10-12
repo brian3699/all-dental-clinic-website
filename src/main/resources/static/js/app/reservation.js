@@ -5,7 +5,7 @@ var main = {
             _this.save();
         });
 
-        $('#btn-update-review').on('click', function () {
+        $('#btn-update-reservation').on('click', function () {
             _this.update();
         });
 
@@ -25,6 +25,7 @@ var main = {
             phoneNumber: $('#phoneNumber').val()
         };
 
+
         $.ajax({
             type: 'POST',
             url: '/api/reservation',
@@ -33,29 +34,31 @@ var main = {
             data: JSON.stringify(data)
         }).done(function() {
             alert('Your reservation has been registered. See you soon!');
-            window.location.href = '/';
+            window.location.href = '/reservation';
         }).fail(function (error) {
-            alert(JSON.stringify(error));
+            alert('Please enter all required information');
         });
     },
 
     update : function () {
         var data = {
-            title: $('#title').val(),
-            content: $('#content').val()
+            reservationDate: $('#reservationDate').val(),
+            reservationTime: $('#reservationTime').val(),
+            service: $('#service').val(),
+            phoneNumber: $('#phoneNumber').val()
         };
 
         var id = $('#id').val();
 
         $.ajax({
             type: 'PUT',
-            url: '/api/v1/posts/'+id,
+            url: '/api/reservation/'+id,
             dataType: 'json',
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data)
         }).done(function() {
-            alert('Your post has been updated');
-            window.location.href = '/';
+            alert('Your reservation has been updated');
+            window.location.href = '/reservation';
         }).fail(function (error) {
             alert(JSON.stringify(error));
         });
