@@ -13,16 +13,16 @@
                         <label for="name">Name</label>
                         <input type="text" class="form-control" id="name" value={{name}} readonly>
                     </div>
-                    <div class="form-group">
+                    <div hidden class="form-group">
                         <label for="uid">Reservation id</label>
                         <input type="text" class="form-control" id="id" value={{id}} readonly>
                     </div>
-
+                    <br>
                     <div class="form-group">
                         <label for="reservationDate"> Visiting date </label>
                         <input type="date" id="reservationDate" placeholder="Please choose a date" min = "tomorrow" required value = {{reservationDate}}>
                     </div>
-
+                    <br>
                     <div class="form-group">
                         <label for="reservationTime"> Visiting Time </label>
                         <select name="service" class="form-control" id="reservationTime" required >

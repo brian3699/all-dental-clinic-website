@@ -9,7 +9,7 @@ var main = {
             _this.update();
         });
 
-        $('#btn-delete-review').on('click', function () {
+        $('#btn-delete-reservation').on('click', function () {
             _this.delete();
         });
     },
@@ -68,12 +68,12 @@ var main = {
 
         $.ajax({
             type: 'DELETE',
-            url: '/api/v1/posts/'+id,
+            url: '/api/reservation/' + id,
             dataType: 'json',
             contentType:'application/json; charset=utf-8'
         }).done(function() {
-            alert('Post deleted');
-            window.location.href = '/';
+            alert('Reservation cancelled');
+            window.location.href = '/reservation';
         }).fail(function (error) {
             alert(JSON.stringify(error));
         });

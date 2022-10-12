@@ -32,10 +32,8 @@ public class ReservationService {
     public Long update(Long id, ReservationUpdateRequestDto dto){
         Reservation reservation = reservationRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("User not in user list: id=" + id));
-        System.out.println("service update initiate success \n");
 
         reservation.update(dto.getReservationDate(), dto.getReservationTime(),dto.getService(), dto.getPhoneNumber());
-        System.out.println("service update success \n");
         return id;
     }
 

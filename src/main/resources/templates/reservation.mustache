@@ -50,7 +50,11 @@
                                     <div class="accordion-body">
                                         {{service}}
                                         <div>
+                                            <input hidden type="text" class="form-control" id="id" value="{{id}}" readonly>
                                             <a href="/reservation/{{id}}" class="btn btn-sm btn-white mb-0 mx-2" style="float: right;">edit reservation</a>
+                                        </div>
+                                        <div>
+                                            <a class="btn btn-sm btn-white mb-0 mx-2" id="btn-delete-reservation" style="float: right;">cancel reservation</a>
                                         </div>
                                     </div>
 
@@ -86,6 +90,7 @@
 <!-- **************** MAIN CONTENT END **************** -->
 
 {{>layout/footer}}
+<script src="/js/app/reservation.js"></script>
 
 
 </body>

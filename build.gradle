@@ -33,7 +33,8 @@ dependencies {
 
 	// lombok
 	implementation('org.projectlombok:lombok:1.18.20')
-	annotationProcessor('org.projectlombok:lombok:1.18.20')
+    implementation 'junit:junit:4.13.1'
+    annotationProcessor('org.projectlombok:lombok:1.18.20')
 	testImplementation('org.projectlombok:lombok:1.18.20')
 	testAnnotationProcessor('org.projectlombok:lombok:1.18.20')
 

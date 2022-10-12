@@ -19,8 +19,15 @@ public class ReservationController {
 
     @PutMapping("/api/reservation/{id}")
     public Long update(@PathVariable Long id, @RequestBody ReservationUpdateRequestDto reservationUpdateRequestDto) {
-        System.out.println("controller update success \n");
         return reservationService.update(id, reservationUpdateRequestDto);
+    }
+
+
+
+    @DeleteMapping("/api/reservation/{id}")
+    public Long delete(@PathVariable Long id){
+        reservationService.delete(id);
+        return id;
     }
 
 }
