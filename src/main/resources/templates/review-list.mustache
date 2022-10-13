@@ -42,23 +42,25 @@
 
                     <!-- Membership and trials START -->
                     <h3 class="mb-4 mt-5"></h3>
-                    <div class="accordion accordion-icon" id="accordionmemberfaq">
-                        {{#review}}
-                            <div class="accordion-item">
-                                <h5 class="accordion-header" id="heading-10">
-                                    <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-10" aria-expanded="false" aria-controls="collapse-10">
-                                        {{title}}
-                                    </button>
-                                </h5>
-                                <div id="collapse-10" class="accordion-collapse collapse" aria-labelledby="heading-10" data-bs-parent="#accordionmemberfaq">
-                                    <div class="accordion-body">
-                                        {{body}}
+                    {{#review}}
+                        <div class="accordion accordion-icon" id="accordionmemberfaq">
+
+                                <div class="accordion-item">
+                                    <h5 class="accordion-header" id="heading-10">
+                                        <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-10" aria-expanded="false" aria-controls="collapse-10">
+                                            {{title}}
+                                        </button>
+                                    </h5>
+                                    <div id="collapse-10" class="accordion-collapse collapse" aria-labelledby="heading-10" data-bs-parent="#accordionmemberfaq">
+                                        <div class="accordion-body">
+                                            {{body}}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        {{/review}}
 
-                    </div>
+
+                        </div>
+                    {{/review}}
                     <!-- Membership and trials END -->
                 </div>
                 <!-- Left END -->

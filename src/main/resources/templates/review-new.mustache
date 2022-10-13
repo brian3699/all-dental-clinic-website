@@ -1,33 +1,37 @@
 <!DOCTYPE HTML>
     {{>layout/header}}
 
-<body>
-<h1>New Post</h1>
 
-<div class="col-md-12">
-    <div class="col-md-4">
-        <form>
-            <div class="form-group">
-                <label for="title">title</label>
-                <input type="text" class="form-control" id="title" placeholder="Please enter title">
-            </div>
-            <div class="form-group">
-                <label for="name"> User name </label>
-                <input type="text" class="form-control" id="name" placeholder="Please enter user name">
-            </div>
-            <div class="form-group">
-                <label for="body"> Content </label>
-                <textarea class="form-control" id="body" placeholder="Please enter your review"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="visitDate"> Visit Date </label>
-                <input type="date" class="form-control" id="visitDate" placeholder="Please choose a date">
-            </div>
-        </form>
-        <a href="/review" role="button" class="btn btn-secondary">Discard</a>
-        <button type="button" class="btn btn-primary" id="btn-save-review">Post</button>
+
+<body>
+<section class="pb-3">
+    <div class="container">
+        <h2>리뷰 작성하기</h2>
+        <div class="col-md-8">
+            <form>
+                <div class="form-group">
+                    <label for="title">제목</label>
+                    <input type="text" class="form-control" id="title" placeholder="제목">
+                </div>
+                <div hidden class="form-group">
+                    <label for="uid">Name</label>
+                    <input type="text" class="form-control" id="name" value={{userName}} readonly>
+                </div>
+                <div class="form-group">
+                    <label for="body"> 리뷰 본문 </label>
+                    <textarea class="form-control" id="body" placeholder="리뷰 본문"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="visitDate"> 방문일 </label>
+                    <input type="date" class="form-control" id="visitDate" placeholder="방문일">
+                </div>
+            </form>
+            <br>
+            <a href="/review" role="button" class="btn btn-secondary">취소</a>
+            <button type="button" class="btn btn-primary" id="btn-save-review">입력</button>
+        </div>
     </div>
-</div>
+</section>
 
 <!-- =======================
 Contact form END -->
@@ -39,4 +43,5 @@ Contact form END -->
 
 </body>
 </html>
+
 

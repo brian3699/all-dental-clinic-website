@@ -29,10 +29,10 @@ var main = {
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data)
         }).done(function() {
-            alert('Your review has been registered');
+            alert('리뷰가 입력되었습니다');
             window.location.href = '/';
         }).fail(function (error) {
-            alert(JSON.stringify(error));
+            alert("모든 항목을 입력해주세요");
         });
     },
     update : function () {
