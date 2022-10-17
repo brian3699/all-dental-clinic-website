@@ -17,25 +17,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-                /**
-          .csrf().disable()
-                .headers().frameOptions().disable()
-                .and()
-                .authorizeRequests()
-                .antMatchers("/", "/css/**", "/images/**", "/js/**", "/h2-console/**", "/profile").permitAll()
-                .antMatchers("/static/**", "/js/**", "/js/app/**").permitAll()
-                .antMatchers("/api/v1/**").hasRole(Role.USER.name())
-                .anyRequest().authenticated()
-                .and()
-                .logout()
-                .logoutSuccessUrl("/")
-                .and()
-                .oauth2Login()
-                .userInfoEndpoint()
-                .userService(customOAuth2UserService);
-**/
 
+        http
          .csrf().disable()
          .headers().frameOptions().disable()
          .and()
@@ -50,6 +33,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
          .antMatchers("/api/v1/**").hasRole(Role.USER.name())
          .anyRequest().authenticated()
          .and()
+                .oauth2Login()
+                .defaultSuccessUrl("/reservation", true)
+                .and()
          .logout()
          .logoutSuccessUrl("/")
          .and()
