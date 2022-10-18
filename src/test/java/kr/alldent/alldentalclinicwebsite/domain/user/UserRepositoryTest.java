@@ -12,6 +12,7 @@ import java.util.List;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 class UserRepositoryTest {
+    /*
     Role role = Role.ADMIN;
     long phoneNumber = 00000000000;
     String email = "testemail@gmail.com";
@@ -52,6 +53,8 @@ class UserRepositoryTest {
         Assertions.assertEquals(name+1, firstUser.getName(),  "firstName is not updated correctly");
         Assertions.assertEquals(photoUrl+1, firstUser.getPhotoUrl(),  "photourl is not updated correctly");
     }
+    */
+
 
 }
 
