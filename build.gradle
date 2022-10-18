@@ -31,6 +31,9 @@ dependencies {
 	implementation('org.springframework.boot:spring-boot-starter-web')
 	implementation('org.springframework.boot:spring-boot-starter-mustache')
 
+	implementation("org.mariadb.jdbc:mariadb-java-client")
+
+
 	// lombok
 	implementation('org.projectlombok:lombok:1.18.20')
     implementation 'junit:junit:4.13.1'
