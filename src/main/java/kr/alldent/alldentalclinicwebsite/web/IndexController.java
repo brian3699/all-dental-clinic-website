@@ -38,6 +38,14 @@ public class IndexController {
         return "index.html";
     }
 
+    @GetMapping("/en")
+    public String indexEnglish(Model model, @LoginUser SessionUser user) {
+        if (user != null) {
+            model.addAttribute("userName", user.getName());
+        }
+        return "index-en.html";
+    }
+
     @GetMapping("/review")
     public String reviewList(Model model, @LoginUser SessionUser user) {
         model.addAttribute("review", reviewService.findAllDesc());

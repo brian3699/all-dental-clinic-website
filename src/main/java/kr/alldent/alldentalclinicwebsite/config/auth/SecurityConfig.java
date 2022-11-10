@@ -23,7 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
          .headers().frameOptions().disable()
          .and()
          .authorizeRequests()
-         .antMatchers("/", "/css/**", "/images/**", "/js/**", "/h2-console/**", "/profile", "/review-new", "/review/new").permitAll()
+         .antMatchers("/","/en","/en/**", "/css/**", "/images/**", "/js/**", "/h2-console/**", "/profile", "/review-new", "/review/new").permitAll()
          .antMatchers("/static/**", "/js/**", "/js/app/**", "/review/**", "/js/**", "/static/**","/js/index.js", "/static/js/app/**", "/review/new", "/review/new/**").permitAll()
          .antMatchers("/resources/**", "/js/**", "/static/**","/js/index.js", "/static/js/app/**").permitAll()
          .antMatchers("/reservation/**", "/api/reservation/**","/reservation-update/**").permitAll()
@@ -60,6 +60,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         corsConfiguration.addAllowedOrigin("/review/**");
         corsConfiguration.addAllowedOrigin("/review/write");
+        corsConfiguration.addAllowedOrigin("/en");
+        corsConfiguration.addAllowedOrigin("/en/**");
+
 
 
 
