@@ -1,8 +1,6 @@
 # All Dental Clinic Website and Reservation Page
 
 
----
-
 ![](resources/first-image.png)  
 All Dental Clinic [website](alldent.kr/en) and [reservation page](alldent.kr/reservation)
 
