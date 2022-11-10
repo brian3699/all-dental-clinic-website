@@ -1,4 +1,4 @@
-#All Dental Clinic Website and Reservation Page
+# All Dental Clinic Website and Reservation Page
 
 
 ---
