@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class IndexControllerTest {
-    /*
+
     @Autowired
     private TestRestTemplate restTemplate;
 
@@ -24,7 +24,19 @@ class IndexControllerTest {
         //then
         assertTrue((body).contains("올치과"));
     }
-    */
+
+    @Test
+    public void testLoadReservation(){
+        String body = this.restTemplate.getForObject("/reservation", String.class);
+        assertTrue((body).contains("reservation"));
+    }
+
+    @Test
+    public void testLoadReview(){
+        String body = this.restTemplate.getForObject("/review", String.class);
+        assertTrue((body).contains("리뷰"));
+    }
+
 
 }
 

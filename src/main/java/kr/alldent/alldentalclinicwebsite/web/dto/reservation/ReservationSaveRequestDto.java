@@ -4,10 +4,14 @@ import kr.alldent.alldentalclinicwebsite.domain.post.comment.Comment;
 import kr.alldent.alldentalclinicwebsite.domain.reservation.Reservation;
 import kr.alldent.alldentalclinicwebsite.domain.reservation.Service;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.sql.Date;
 import java.sql.Time;
 
+@Getter
+@NoArgsConstructor
 public class ReservationSaveRequestDto {
 
     private long uid;

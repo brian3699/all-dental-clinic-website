@@ -55,7 +55,7 @@ public class Reservation extends BaseEntity {
      */
     public void update(Date reservationDate, String reservationTime, String service, String phoneNumber) {
 
-        this.reservationDate = Date.valueOf(reservationDate.toLocalDate().plusDays(1));
+        this.reservationDate = reservationDate;
         this.reservationTime = reservationTime;
         this.service = Service.valueOf(service);
         this.phoneNumber = phoneNumber;
@@ -66,7 +66,7 @@ public class Reservation extends BaseEntity {
 
     @Builder
     public Reservation(Date reservationDate, Long uid, String reservationTime, String service, String name, String phoneNumber){
-        this.reservationDate = Date.valueOf(reservationDate.toLocalDate().plusDays(1));
+        this.reservationDate = reservationDate;
         this.uid = uid;
         this.reservationTime = reservationTime;
         this.service = Service.valueOf(service);

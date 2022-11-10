@@ -12,9 +12,8 @@ import java.util.List;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 class UserRepositoryTest {
-    /*
+
     Role role = Role.ADMIN;
-    long phoneNumber = 00000000000;
     String email = "testemail@gmail.com";
     String name = "name";
     String photoUrl = "url.com";
@@ -42,18 +41,8 @@ class UserRepositoryTest {
         Assertions.assertEquals(photoUrl, firstUser.getPhotoUrl(), "photourl is not saved correctly");
     }
 
-    @Test
-    public void testUpdate() {
-        User firstUser = userRepository.findAll().get(0);
 
-        //firstUser.update(Role.USER, email+1, name+1, photoUrl+1);
 
-        Assertions.assertEquals(Role.USER.getKey(), firstUser.getRole().getKey(),  "role is not updated correctly");
-        Assertions.assertEquals(email+1, firstUser.getEmail(),  "email is not updated correctly");
-        Assertions.assertEquals(name+1, firstUser.getName(),  "firstName is not updated correctly");
-        Assertions.assertEquals(photoUrl+1, firstUser.getPhotoUrl(),  "photourl is not updated correctly");
-    }
-    */
 
 
 }

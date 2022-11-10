@@ -16,7 +16,7 @@ import java.util.List;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 class CommentRepositoryTest {
-    /*
+
     long originPostId = 1;
     String body = "test body";
     String userFirstName = "test first name";
@@ -50,7 +50,7 @@ class CommentRepositoryTest {
 
 
     }
-    */
+
 
 
 }

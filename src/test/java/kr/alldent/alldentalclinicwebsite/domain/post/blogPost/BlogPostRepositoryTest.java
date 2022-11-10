@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 class BlogPostRepositoryTest {
-    /**
+
     LocalDateTime curr = LocalDateTime.of(2022, 6, 16, 0, 0, 0);
     String title = "test title";
     String body = "test body";
@@ -61,10 +61,10 @@ class BlogPostRepositoryTest {
 
         BlogPost firstPost = blogPostList.get(0);
 
-        Assertions.assertTrue(firstPost.getCreatedDateTime() == null);
+        assertNotNull(firstPost.getCreatedDateTime());
 
     }
-    **/
+
 
 
 

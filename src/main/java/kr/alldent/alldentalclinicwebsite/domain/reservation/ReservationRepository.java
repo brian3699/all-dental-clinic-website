@@ -9,6 +9,7 @@ import java.util.List;
 
 public interface ReservationRepository extends JpaRepository<Reservation, Long> {
 
+
     @Query("SELECT reservation FROM Reservation reservation WHERE reservation.uid = :uid AND reservation.reservationDate >= :today  ORDER BY reservation.reservationDate ASC")
     List<Reservation> findByUid(@Param("uid") long uid, @Param("today") Date today);
 
