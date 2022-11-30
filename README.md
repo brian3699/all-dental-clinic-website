@@ -2,7 +2,7 @@
 
 
 ![](resources/first-image.png)  
-All Dental Clinic [website](http://alldent.kr/en) and [reservation page](http://alldent.kr/reservation)
+All Dental Clinic [website](http://alldent.kr) and [reservation page](http://alldent.kr/reservation)
 
 All Dental Clinic's website and reservation page created using Java, Spring Boot, MySQL, HTML, and Mustache. Website deployed on Amazon Web Services EC2. 
 
